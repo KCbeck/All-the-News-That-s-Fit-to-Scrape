@@ -1,5 +1,5 @@
 {
-  "name": "mongoose_skeleton",
+  "name": "newsscraper",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -11,11 +11,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.18.0",
-    "cheerio": "^1.0.0-rc.2",
-    "express": "^4.16.3",
+    "axios": "^0.18.1",
+    "cheerio": "^1.0.0-rc.3",
+    "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
-    "mongoose": "^5.3.16",
+    "mongo": "^0.1.0",
+    "mongoose": "^5.7.7",
     "morgan": "^1.9.1"
   }
 }
