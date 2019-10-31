@@ -50,7 +50,7 @@ app.get("/", function(req, res) {
 // A GET route for scraping the echoJS website
 app.get("/scrape", function(req, res) {
   // First, we grab the body of the html with axios
-  axios.get("https://www.axios.com/axios-dashboard-1550619343-de740d6a-eac1-4599-82bd-440534577f92.html").then(response => {
+  axios.get("https://www.aljazeera.com").then(response => {
     console.log("axios response");
     // Load the HTML into cheerio and save it to a variable
     // '$' becomes a shorthand for cheerio's selector commands, much like jQuery's '$'
@@ -83,9 +83,9 @@ app.get("/scrape", function(req, res) {
       console.log("Children");
       console.log(headline_child);
       let article={
-        headline:headline_parent,
-        url:link,
-        content:headline_child,
+        title:headline_parent,
+        link:link,
+        description:headline_child,
 
       }
       db.Article.create(article).then(function(article){
