@@ -101,8 +101,37 @@ app.get("/scrape", function(req, res) {
 
 app.get("/search", function(req, res) {
   const searchQuery = req.query.search;
+// originally I used RegExp
+  // We did this with calvin, I worked with Musheer, on his computer because my computer was down check the dates, calvin and Musheer can both vouch for this. its basically the mongoose homework
+  
+// https://mongoosejs.com/docs/api.html
+//   Here is where it comes from in the data
 
-  db.Article.find({headline: new RegExp(searchQuery, "i")})
+// method name or regular expression
+//   Parameters
+// name «String|RegExp» if string, the name of the model to remove. If regexp, removes all models whose name matches the regexp.
+// Returns:
+// «Mongoose» this
+// Removes the model named name from the default connection, if it exists. You can use this function to clean up any models you created in your tests to prevent OverwriteModelErrors.
+
+// Equivalent to mongoose.connection.deleteModel(name).
+
+// Example:
+// mongoose.model('User', new Schema({ name: String }));
+// console.log(mongoose.model('User')); // Model object
+// mongoose.deleteModel('User');
+// console.log(mongoose.model('User')); // undefined
+
+// // Usually useful in a Mocha `afterEach()` hook
+// afterEach(function() {
+//   mongoose.deleteModel(/.+/); // Delete every model
+// });
+// ______________________________________________________
+  // ?https://mongoosejs.com/docs/api.html
+
+  db.Article.find({headline: new (searchQuery, "i")})
+// as in the documentation it only returns a query if the 
+
     // Throw any errors to the console
     .then(function(dbPopulate) {
       // If any Libraries are found, send them to the client with any associated Books
